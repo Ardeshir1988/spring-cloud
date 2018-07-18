@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" >Cryptocurrency Rate</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="col-sm-3 pull-left">
+        <select  class="btn btn-info" id="target">
+            <option th:value="usd">USD</option>
+            <option th:value="eur">EURO</option>
+        </select>
+    </div>
+    <div class="col-sm-3 pull-left">
+        <select  class="btn btn-info" id="base">
+            <option th:value="btc">BTC</option>
+            <option th:value="eth">ETH</option>
+        </select>
+    </div>
+    <button type="button" class="btn btn-success" onclick="loadrate()">
+        load rate
+    </button>
+    <div id="rate" th:fragment="frg">
+        <h2 th:text="${rate}"></h2>
+    </div>
+
+</div>
+</body>
+<script>
+    function loadrate() {
+        var url = '/ui/getprice?base='+document.getElementById("base").value+'&target='+document.getElementById("target").value;;
+        $("#rate").load(url);
+    }
+</script>
+</html>
