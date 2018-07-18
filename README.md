@@ -1,5 +1,5 @@
 # springcloud 
-## this basic spring cloud application
+## this is the basic spring cloud application
 ### eureka - zuul - hystrix - ribbon - resttemplate
 ### four modules with special tasks for making realtime cryptocurrency exchange rate
 ### eureka server - zuul proxy - fronted service - exchange cryptocurrency service
